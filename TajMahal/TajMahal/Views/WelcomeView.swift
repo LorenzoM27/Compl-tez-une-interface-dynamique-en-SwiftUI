@@ -7,17 +7,27 @@
 
 import SwiftUI
 
-// Page d'accueil
 struct WelcomeView: View {
     var body: some View {
         NavigationStack {
             Image("TajMahal")
             Spacer()
+            InfosView()
+                .padding(.top)
             NavigationLink {
                 MenuView()
             } label : {
-                Text("Menu")
+                Text("Accéder au menu")
+                    .font(.custom("Plus Jakarta Sans Bold", size: 16))
+                    .foregroundStyle(.white)
+                    .frame(width: UIScreen.main.bounds.width - 32, height: 50)
+//                    .padding(.horizontal, 100)
+//                    .frame(height: 50)
+                    .background(Color.customRed)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    
             }
+            .padding(.top)
         }
     }
 }

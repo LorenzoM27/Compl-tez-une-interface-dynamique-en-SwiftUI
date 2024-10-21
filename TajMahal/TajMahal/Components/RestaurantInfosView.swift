@@ -8,11 +8,33 @@
 import SwiftUI
 
 struct RestaurantInfosView: View {
+    
+    var image: String
+    var description: String
+    var detail: String
+    
+    
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack(spacing: 14) {
+            Image(image)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 15, height: 15)
+            
+            Text(description)
+            
+            Spacer()
+            
+            Text(detail)
+                
+        }
+        .font(.custom("Plus Jakarta Sans Regular", size: 14))
+        .fontWeight(.medium)
+        .foregroundStyle(Color.customColor1)
     }
 }
 
 #Preview {
-    RestaurantInfosView()
+    RestaurantInfosView(image: "schedules", description: "Mercredi", detail: "Détail")
 }
