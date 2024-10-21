@@ -33,31 +33,12 @@ struct DishDetailView: View {
             
             ScrollView {
                 VStack(alignment: .leading) {
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text("Allergènes :")
-                            .font(.custom("Plus Jakarta Sans Regular", size: 14))
-                            .fontWeight(.semibold)
-                            .foregroundStyle(Color.customColor1)
-                        
-                        Text(dish.allergens)
-                            .font(.custom("Plus Jakarta Sans Regular", size: 14))
-                            .foregroundStyle(Color.customColor1)
-                    }
+                    DetailInfoView(description: dish.allergens, title: "Allergènes :")
                     
                     Divider()
                         .padding(.vertical, 10)
                     
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text("Ingrédients :")
-                            .font(.custom("Plus Jakarta Sans Regular", size: 14))
-                            .fontWeight(.semibold)
-                            .foregroundStyle(Color.customColor1)
-                        
-                        Text(dish.ingredients)
-                            .font(.custom("Plus Jakarta Sans Regular", size: 14))
-                            .foregroundStyle(Color.customColor1)
-                        //.lineLimit(nil)
-                    }
+                    DetailInfoView(description: dish.ingredients, title: "Ingredients :")
                 }
             }
             .scrollIndicators(.hidden)
@@ -82,7 +63,6 @@ struct DishDetailView: View {
                         .font(.custom("Plus Jakarta Sans Regular", size: 16))
                         .fontWeight(.semibold)
                 }
-                
             }
         }
     }

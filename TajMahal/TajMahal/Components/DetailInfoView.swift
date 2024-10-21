@@ -8,11 +8,23 @@
 import SwiftUI
 
 struct DetailInfoView: View {
+    
+    let description: String
+    let title: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+        VStack(alignment: .leading, spacing: 10) {
+            Text(title)
+                .font(.custom("Plus Jakarta Sans Regular", size: 14))
+                .fontWeight(.semibold)
+                .foregroundStyle(Color.customColor1)
+            
+            Text(description)
+                .font(.custom("Plus Jakarta Sans Regular", size: 14))
+                .foregroundStyle(Color.customColor1)
+        }    }
 }
 
 #Preview {
-    DetailInfoView()
+    DetailInfoView(description: "Sans allergènes majeurs", title: "Allergènes :")
 }

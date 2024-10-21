@@ -11,6 +11,7 @@ struct DishSectionModifier: ViewModifier {
     let title: String
     let dishes: [Dish]
 
+    /// Define the appearance of the modified view
     func body(content: Content) -> some View {
         Section(title) {
             ForEach(dishes, id: \.self) { dish in
@@ -29,8 +30,9 @@ struct DishSectionModifier: ViewModifier {
         }
     }
 }
-
+/// Adding method available in all SwiftUI View
 extension View {
+    /// Return a view applying a modifictor on the view on she's called
     func dishSection(title: String, dishes: [Dish]) -> some View {
         self.modifier(DishSectionModifier(title: title, dishes: dishes))
     }

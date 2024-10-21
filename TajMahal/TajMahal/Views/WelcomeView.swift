@@ -25,7 +25,6 @@ struct WelcomeView: View {
 //                    .frame(height: 50)
                     .background(Color.customRed)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
-                    
             }
             .padding(.top)
         }

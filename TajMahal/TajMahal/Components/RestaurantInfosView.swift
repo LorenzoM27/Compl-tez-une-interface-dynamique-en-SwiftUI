@@ -13,8 +13,6 @@ struct RestaurantInfosView: View {
     var description: String
     var detail: String
     
-    
-
     var body: some View {
         HStack(spacing: 14) {
             Image(image)

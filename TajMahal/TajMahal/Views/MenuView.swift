@@ -15,42 +15,11 @@ struct MenuView: View {
     
     var body: some View {
         List {
-            // À completer
-//            Section("Entrées") {
-//                ForEach(viewModel.apetizerArray, id: \.self) { apetize in
-//                    ZStack {
-//                        NavigationLink {
-//                            DishDetailView(dish: apetize)
-//                        } label: {
-//                            EmptyView()
-//                        }
-//                        .opacity(0)
-//                        
-//                        RowDishView(dish: apetize)
-//                    }
-//                    .listRowSeparator(.hidden)
-//                }
-//            }
+            
             self.dishSection(title: "Entrées", dishes: viewModel.apetizerArray)
             
             self.dishSection(title: "Plats principaux", dishes: viewModel.mainCourseArray)
-//            Section("Plats principaux") {
-//                ForEach(viewModel.mainCourseArray, id: \.self) { course in
-//                    ZStack {
-//                        NavigationLink {
-//                            DishDetailView(dish: course)
-//                        } label: {
-//                            EmptyView()
-//                        }
-//                        .opacity(0)
-//                        
-//                        RowDishView(dish: course)
-//                    }
-//                    .listRowSeparator(.hidden)
-//                   
-//
-//                }
-//            }
+            
     
         }
         .listRowSpacing(12)
