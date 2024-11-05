@@ -7,33 +7,60 @@
 
 import SwiftUI
 
-struct DishSectionModifier: ViewModifier {
-    let title: String
-    let dishes: [Dish]
+//struct DishSectionModifier: ViewModifier {
+//   // let title: String
+//    let dishes: Dish
+//
+//    /// Define the appearance of the modified view
+//    func body(content: Content) -> some View {
+//        ZStack {
+//            NavigationLink{
+//                DishDetailView(dish: dishes)
+//            }
+//            label: {
+//                EmptyView()
+//            }
+//            .opacity(0)
+//            
+//            content
+//        }
+//        .listRowSeparator(.hidden)
+//    }
+//}
+///// Adding method available in all SwiftUI View
+//extension View {
+//    /// Return a view applying a modifictor on the view on she's called
+////    func dishSection(dishes: Dish) -> some View {
+////        self.modifier(DishSectionModifier(dishes: dishes))
+////    }
+//    func dishSection(dishes: Dish) -> some View {
+//            self.modifier(DishSectionModifier(dishes: dishes))
+//        }
+//}
+
+
+
+struct DishSectionModifier<Destination: View>: ViewModifier {
+    
+    let destination: () -> Destination
 
     /// Define the appearance of the modified view
     func body(content: Content) -> some View {
-        Section(title) {
-            ForEach(dishes, id: \.self) { dish in
-                ZStack {
-                    NavigationLink {
-                        DishDetailView(dish: dish)
-                    } label: {
-                        EmptyView()
-                    }
-                    .opacity(0)
-                    
-                    RowDishView(dish: dish)
-                }
-                .listRowSeparator(.hidden)
+        ZStack {
+            NavigationLink(destination: destination()) {
+                EmptyView()
             }
+            .opacity(0)
+            
+            content
         }
+        .listRowSeparator(.hidden)
     }
 }
 /// Adding method available in all SwiftUI View
 extension View {
     /// Return a view applying a modifictor on the view on she's called
-    func dishSection(title: String, dishes: [Dish]) -> some View {
-        self.modifier(DishSectionModifier(title: title, dishes: dishes))
-    }
+    func dishSection<Destination: View>( destination: @escaping () -> Destination) -> some View {
+            self.modifier(DishSectionModifier(destination: destination))
+        }
 }

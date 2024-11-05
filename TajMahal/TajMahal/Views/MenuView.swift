@@ -16,11 +16,24 @@ struct MenuView: View {
     var body: some View {
         List {
             
-            self.dishSection(title: "Entrées", dishes: viewModel.apetizerArray)
+            Section("Entrée") {
+                ForEach(viewModel.apetizerArray, id: \.self) { dish in
+                    RowDishView(dish: dish)
+                        .dishSection {
+                            DishDetailView(dish: dish)
+                        }
+                }
+            }
             
-            self.dishSection(title: "Plats principaux", dishes: viewModel.mainCourseArray)
-            
-    
+            Section("Plats principaux") {
+                ForEach(viewModel.mainCourseArray, id: \.self) { dish in
+                    RowDishView(dish: dish)
+                        .dishSection {
+                            DishDetailView(dish: dish)
+                        }
+
+                }
+            }
         }
         .listRowSpacing(12)
         //.listStyle(.insetGrouped)
